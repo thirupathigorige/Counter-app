@@ -6,6 +6,11 @@ class Counter extends Component {
         tags: ["tag1", "tag2", "tag3"]
     }
 
+    // constructor(){
+    //     super();
+    //     console.log("Constructor", this);
+    // }
+
     formatCount() {
         const { count } = this.state;
         return count == 0 ? 'Zero' : count;
@@ -17,8 +22,9 @@ class Counter extends Component {
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
     }
 
-    handleIncrement() {
-        console.log("Click");
+    handleIncrement = () => {
+        // console.log("Click", this);
+        this.setState({count: this.state.count+1})
     }
 
     render() {
