@@ -6,10 +6,10 @@ class Counter extends Component {
         tags: ["tag1", "tag2", "tag3"]
     }
 
-    // formatCount() {
-    //     const { count } = this.state;
-    //     return count == 0 ? 'Zero' : count;
-    // }
+    formatCount() {
+        const { count } = this.state;
+        return count == 0 ? 'Zero' : count;
+    }
 
     renderTags() {
         if (this.state.tags.length === 0) return <p>There are no tags!</p>;
@@ -17,23 +17,26 @@ class Counter extends Component {
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
     }
 
+    handleIncrement() {
+        console.log("Click");
+    }
 
     render() {
         return (
             <div>
-                {/* <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button className="btn btn-secondary btn-sm">Increment</button> */}
+                <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
+                <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
                 {this.state.tags.length === 0 && "Please create a new tags...!"}
                 {this.renderTags()}
             </div>
         );
     }
 
-    // getBadgeClasses() {
-    //     let classes = "badge m-2 badge-";
-    //     classes += this.state.count > 0 ? 'primary' : 'info';
-    //     return classes;
-    // }
+    getBadgeClasses() {
+        let classes = "badge m-2 badge-";
+        classes += this.state.count > 0 ? 'primary' : 'info';
+        return classes;
+    }
 }
 
 export default Counter;
