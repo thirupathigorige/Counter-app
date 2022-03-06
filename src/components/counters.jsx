@@ -37,6 +37,7 @@ class Counters extends React.Component {
     }
 
     render() {
+        console.log("Counter");
         return (
             <div>
                 <button onClick={this.handleReset} className="btn btn-danger btn-sm m-2">Reset</button>
